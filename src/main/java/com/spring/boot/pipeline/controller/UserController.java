@@ -2,6 +2,7 @@ package com.spring.boot.pipeline.controller;
 
 import com.spring.boot.pipeline.dto.UserDTO;
 import com.spring.boot.pipeline.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ public class UserController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<UserDTO> create(@RequestBody UserDTO userDTO){
+    public ResponseEntity<UserDTO> create(@RequestBody @Valid UserDTO userDTO){
 
         UserDTO userCreated = userService.create(userDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
@@ -48,12 +49,11 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id){
-
-        userService.findById(id);
+        userService.deleteById(id);
         return ResponseEntity.noContent().build();
-
-        }
-
     }
+
+
+}
 
 

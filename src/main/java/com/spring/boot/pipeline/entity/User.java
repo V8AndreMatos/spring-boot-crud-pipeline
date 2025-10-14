@@ -1,6 +1,5 @@
 package com.spring.boot.pipeline.entity;
 
-
 import jakarta.persistence.*;
 
 @Entity
