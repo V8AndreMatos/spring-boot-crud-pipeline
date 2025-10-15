@@ -1,16 +1,22 @@
 package com.spring.boot.pipeline.entity;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_users")
+@Schema(description = "Entity that represents a user in the database")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "ID of user", example = "1")
     private Long id;
 
+    @Schema(description = "User full name", example = "André Matos")
     private String name;
+
+    @Schema(description = "Age of user", example = "30")
     private Integer age;
 
     public User() {
