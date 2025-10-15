@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
         StandardError err = new StandardError(
                 Instant.now(),
                 HttpStatus.NOT_FOUND.value(),
-                "Resource not found",
+                "User not found",
                 ex.getMessage(),
                 request.getRequestURI()
         );

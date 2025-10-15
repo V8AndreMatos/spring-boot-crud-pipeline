@@ -2,6 +2,9 @@ package com.spring.boot.pipeline.controller;
 
 import com.spring.boot.pipeline.dto.UserDTO;
 import com.spring.boot.pipeline.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Users", description = "User-related operations")
 @RestController
 @RequestMapping(("/users"))
 public class UserController {
@@ -26,6 +30,8 @@ public class UserController {
         return userService.findAll();
     }
 
+    @Operation(summary = "Search user by ID", description = "Returns data for a specific user")
+    @ApiResponse(responseCode = "200", description = "User found successfully")
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> findById(@PathVariable Long id) {
         UserDTO dto = userService.findById(id);

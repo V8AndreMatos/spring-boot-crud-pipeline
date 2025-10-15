@@ -1,18 +1,23 @@
 package com.spring.boot.pipeline.dto;
 
 import com.spring.boot.pipeline.entity.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
+@Schema(description = "Object representing a user")
 public class UserDTO {
 
+    @Schema(description = "ID of user", example = "1")
     private Long id;
     @NotBlank(message = "Name is required")
+    @Schema(description = "Full Name", example = "André Matos")
     private String name;
     @Min(value = 0, message = "Age must be positive")
     @Max(value = 120, message = "Age must be realistic")
 
+    @Schema(description = "Age of user", example = "54")
     private Integer age;
 
     public UserDTO() {
@@ -38,7 +43,6 @@ public class UserDTO {
         user.setAge(this.age);
         return user;
     }
-
 
     public Long getId() {
         return id;

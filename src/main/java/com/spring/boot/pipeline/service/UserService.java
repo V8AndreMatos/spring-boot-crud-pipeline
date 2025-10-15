@@ -27,7 +27,7 @@ public class UserService {
 
     public UserDTO findById(Long id){
         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id" +id+ " Not Found"));
-        return new UserDTO();
+        return new UserDTO(user);
     }
 
     public UserDTO create(UserDTO userDTO) {
@@ -39,7 +39,7 @@ public class UserService {
 
     public UserDTO update(Long id, UserDTO userDTO) {
         User entity = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User " + id + " Not Found"));
+                .orElseThrow(() -> new ResourceNotFoundException("User with id : " + id + " Not Found"));
 
         entity.setName(userDTO.getName());
         entity.setAge(userDTO.getAge());

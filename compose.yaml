@@ -1,15 +1,15 @@
-version: '3.8'
+
 
 services:
   mysql:
     image: mysql:latest
-    container_name: mysql
+    container_name: mysql-db
     restart: always
     environment:
-      - MYSQL_DATABASE=mydatabase
-      - MYSQL_USER=myuser
-      - MYSQL_PASSWORD=secret
-      - MYSQL_ROOT_PASSWORD=verysecret
+      - MYSQL_DATABASE=spring_pipeline_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=dodgedart79
+      - MYSQL_ROOT_PASSWORD=dodgedart79
     ports:
       - '3306:3306'
     volumes:
