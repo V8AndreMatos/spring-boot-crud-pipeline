@@ -14,6 +14,6 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("Spring Boot CRUD Pipeline API")
                         .version("1.0")
-                        .description("Documentação da API de usuários com operações de CRUD"));
+                        .description("Documentation of the API de users with operations of CRUD"));
     }
 }
