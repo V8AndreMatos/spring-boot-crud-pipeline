@@ -56,12 +56,51 @@ src/
 │       ├── application.properties
 │       └── static/
 └── test/
+
 📦 Sample Endpoints
 Method    Endpoint    Description
 GET     /api/users       Lists all users
 POST    /api/users       Creates a new user
 PUT    /api/users/{id}   Updates a user
 DELETE /api/users/{id}   Removes a user by id
+
+📦 API Endpoints
+Method    Endpoint    Description        Request Body (JSON)
+GET     /users         List all users      —
+GET     /users/{id}    Search for user by ID    —
+POST    /users         Create new user    { “name”: “User in the afternoon”, “age”: 15 }
+PUT     /users/{id}    Updates user       { “name”: “User number one tuesday”, “age”: 30 }
+DELETE /users/{id}     Removes user by ID    —
+
+📬 Examples of Requisition
+🔹 Create user
+http://localhost:8080/users
+POST /users
+Content-Type: application/json
+
+{
+"name": " New User ",
+"age": 15
+}
+
+🔹 Update user
+http://localhost:8080/users/{id}
+PUT /users/1
+Content-Type: application/json
+
+{
+"name": "New User updated ",
+"age": 30
+}
+
+🔹 Find user by ID
+http://localhost:8080/users/{id}
+GET /users/1
+
+🔹 Delete user
+http://localhost:8080/users/{id}
+DELETE /users/1
+
 
 🧑‍💻 Author
 André [V8AndreMatos]

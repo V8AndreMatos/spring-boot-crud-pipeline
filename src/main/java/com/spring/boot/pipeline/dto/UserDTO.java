@@ -13,12 +13,14 @@ public class UserDTO {
     private Long id;
     @NotBlank(message = "Name is required")
     @Schema(description = "Full Name", example = "André Matos")
+    @NotBlank(message = "Name is required")
     private String name;
-    @Min(value = 0, message = "Age must be positive")
-    @Max(value = 120, message = "Age must be realistic")
 
     @Schema(description = "Age of user", example = "54")
+    @Min(value = 0, message = "Age must be positive")
+    @Max(value = 120, message = "Age must be realistic")
     private Integer age;
+
 
     public UserDTO() {
     }
